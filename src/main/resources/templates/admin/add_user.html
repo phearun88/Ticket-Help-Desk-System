@@ -1,0 +1,261 @@
+  <html xmlns:th="https://www.thymeleaf.org"
+  		xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+  		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="/admin/admin_layout">
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+		    
+		    
+<th:block layout:fragment="content">
+	<!-- Content Wrapper. Contains page content -->
+	  <div class="content-wrapper">
+	    <!-- Content Header (Page header) -->
+	    <div class="content-header">
+	      <div class="container-fluid">
+	        <div class="row mb-2">
+	          <div class="col-sm-6">
+	            <h1 class="m-0 text-dark moul"> ចុះឈ្មោះអ្នកប្រើប្រាស់</h1>
+	          </div><!-- /.col -->
+	        </div><!-- /.row -->
+	      </div><!-- /.container-fluid -->
+	    </div>
+	    <!-- /.content-header -->
+	
+	    <!-- Main content -->
+	    <section class="content">
+	      <div class="container-fluid">
+	      
+	       <!-- /.str-row -->
+		       <div class="row">
+		          <div class="col-12 col-sm-12">
+		            <div class="card card-primary card-outline card-outline-tabs">
+		            
+		              <div class="card-header p-0 border-bottom-0">
+		                
+		                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+		                
+		                  <li class="nav-item">
+		                    <a class="nav-link active" id="inforTab" data-toggle="pill" href=".custom-inforTab" role="tab" aria-controls="inforTab" aria-selected="true"><i class="fas fa-user-tie"></i> គណនី</a> 
+		                  </li>
+		                  
+		                  <li class="nav-item">
+		                    <a class="nav-link" id="eduTab" data-toggle="pill" href=".custom-eduTab" role="tab" aria-controls="eduTab" aria-selected="false"><i class="fas fa-graduation-cap"></i> ព័ត៌មានអ្នកប្រើប្រាស់</a>
+		                  </li>
+		                 
+		                </ul>
+		              </div>
+		              
+		                
+			         <!-- /.str_register -->  
+		              <div class="card-body">
+		                <div class="tab-content" id="custom-tabs-four-tabContent">
+		                  <div class="tab-pane fade show active custom-inforTab" id="custom-inforTab" role="tabpanel" aria-labelledby="inforTab">
+		                  	 
+		                  	<h6 class="mb-0 moul"> ព័ត៌មានចូលគណនី</h6>
+			                <div class="tab-custom-content"></div> 
+			                
+			                <form role="form" id="fmRegisUser" action="#" method="post">
+				                 <table class="table tblNonBorder">
+						                 <colgroup>
+												<col style="width:200px;">
+												<col style="width:500px;">
+												<col style="width:200px;">
+												<col style="width:500px;">
+											</colgroup>
+						                  <tbody>
+						                    <tr>
+						                    	<th>ប្រភេទអ្នកប្រើប្រាស់</th>
+						                      	<td><em class="point"></em>
+												<select class="form-control" id="userRole">
+							                          <option value="ROLE_EDITOR">អ្នកទទួល</option>
+							                          <option value="ROLE_USER">អ្នកស្នើសុំ</option>
+							                          <option value="ROLE_ADMIN">អ្នកគ្រប់គ្រង</option>
+							                        </select>
+												</td>
+												
+						                      	<th>ឈ្មោះគណនី</th>
+								                <td>
+							                        <div class="input-group input-group-sm">
+									                  <input type="text" class="form-control" id="userNm" placeholder="ឈ្មោះគណនី">
+									                  <input type="hidden" class="form-control" id="userCode">
+									                  <span class="input-group-append">
+									                    <button type="button" class="btn btn-info btn-flat" id="btnChkDup">ត្រួតពិនិត្យ</button>
+									                  </span>
+									                </div>
+							                    </td>
+						                    </tr>
+						                    <tr>
+						                		<th>លេខសំងាត់</th>
+						                      	<td><em class="point"></em><input type="password" class="form-control" id="usersPwd" placeholder="លេខសំងាត់"></td>
+						                      	
+						                      	<th>បញ្ជាក់លេខសំងាត់</th>
+						                      	<td><em class="point"></em><input type="password" class="form-control" id="conUserPwd" placeholder="បញ្ជាក់លេខសំងាត់"></td>
+						                    </tr>
+						                   
+						                  </tbody>
+					                </table>
+				                
+				               </form> 
+			                <div class="col-12 col-sm-12">
+			                  <button type="button" class="btn btn-primary" id="btnSaveUser"><i class="far fa-save"></i> រក្សាទុក</button>
+			                </div>
+		                  
+		                  </div>
+		                  
+		                 <div class="tab-pane fade custom-eduTab" id="custom-eduTab" role="tabpanel" aria-labelledby="eduTab">
+		                 
+		                 <form role="form" id="fmUsrDetail" action="#" method="post">
+			                 <table class="table tblNonBorder">
+					                 <colgroup>
+											<col style="width:200px;">
+											<col style="width:500px;">
+											<col style="width:200px;">
+											<col style="width:500px;">
+										</colgroup>
+					                  <tbody>
+					                  
+					                     <tr>
+					                     	<th>នាមត្រកូល-នាមខ្លួន</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="userNmKh" placeholder="នាមត្រកូល-នាមខ្លួន"></td>
+					                      	
+					                		<th>ជាអក្សរឡាតាំង</th>
+					                		<td><em class="point"></em><input type="text" class="form-control" id="userNmEn" placeholder="ជាអក្សរឡាតាំង"></td>
+					                    </tr>
+					                     <tr>
+					                		<th>ភេទ</th>
+					                      	<td><em class="point"></em>
+												<select class="form-control" id="userGen">
+							                          <option value="M">ប្រុស</option>
+							                          <option value="F">ស្រី</option>
+							                        </select>
+											</td>
+											
+					                      	<th>ថ្ងៃខែឆ្នាំកំណើត</th>
+					                      	<td>
+					                      		<div class="input-group"><em class="point"></em>
+								                    <div class="input-group-prepend">
+								                      <span class="input-group-text">
+								                        <i class="far fa-calendar-alt"></i>
+								                      </span>
+								                    </div>
+								                    <input type="text" class="form-control float-right datepicker" id="userDob">
+								                  </div>
+					                      	</td>
+					                    </tr>
+					                    
+					                    <tr>
+					                		<th>អត្តលេខ</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="userIdCd" placeholder="អត្តលេខ"></td>
+					                      	<th>ឋានៈ</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="userPosition" placeholder="ឋានៈ"></td>
+					                    </tr>
+					                    <tr>
+					                		<th>ឈ្មោះអង្គភាព</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="deptNm" placeholder="ឈ្មោះអង្គភាព"></td>
+					                    </tr>
+					                  </tbody>
+				                </table>
+				                
+				                <h6 class="mb-0 moul">ទីកន្លែងកំណើត</h6>
+			                 <div class="tab-custom-content"></div> 
+			                 
+			                 <table class="table tblNonBorder">
+					                 <colgroup>
+											<col style="width:200px;">
+											<col style="width:500px;">
+											<col style="width:200px;">
+											<col style="width:500px;">
+										</colgroup>
+					                  <tbody>
+					                    <tr>
+					                		<th>ខេត្ត/រាជធានី</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrOldPro" placeholder="ខេត្ត/រាជធានី"></td>
+					                      	<th>ស្រុក/ខណ្ឌ</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrOldDist" placeholder="ស្រុក/ខណ្ឌ"></td>
+					                    </tr>
+					                     <tr>
+					                		<th>ឃុំ/សង្កាត់</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrOldComm" placeholder="ឃុំ/សង្កាត់"></td>
+					                      	<th>ភូមិ</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrOldVill" placeholder="ភូមិ"></td>
+					                    </tr>
+					                  </tbody>
+				                </table>
+				                
+				                <h6 class="mb-0 moul">អាសយដ្ឋានទំនាក់ទនងបច្ចុប្បន្ន</h6>
+			                 	<div class="tab-custom-content"></div> 
+			                 
+			                 	<table class="table tblNonBorder">
+					                 <colgroup>
+											<col style="width:200px;">
+											<col style="width:500px;">
+											<col style="width:200px;">
+											<col style="width:500px;">
+										</colgroup>
+					                  <tbody>
+					                    <tr>
+					                		<th>ខេត្ត/រាជធានី</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrNewPro" placeholder="ខេត្ត/រាជធានី"></td>
+					                      	<th>ស្រុក/ខណ្ឌ</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrNewDist" placeholder="ស្រុក/ខណ្ឌ"></td>
+					                    </tr>
+					                     <tr>
+					                		<th>ឃុំ/សង្កាត់</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrNewComm" placeholder="ឃុំ/សង្កាត់"></td>
+					                      	<th>ភូមិ</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrNewVill" placeholder="ភូមិ"></td>
+					                    </tr>
+					                     <tr>
+					                		<th>ទូរស័ព្ទចល័ត</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrTel" placeholder="ទូរស័ព្ទចល័ត"></td>
+					                      	<th>សារអេឡិចត្រូនិច</th>
+					                      	<td><em class="point"></em><input type="text" class="form-control" id="usrEmail" placeholder="សារអេឡិចត្រូនិច"></td>
+					                    </tr>
+					                    
+					                  </tbody>
+				                </table>
+				                
+			                </form>
+			                <div class="col-12 col-sm-12" style="text-align: right;">
+			                  <button type="submit" class="btn btn-danger" id="btnCanEduClr"><i class="fas fa-eraser"></i> សម្អាត</button>
+			                  <button type="submit" class="btn btn-primary" data-eduId="" id="btnSubUsrDetail"><i class="far fa-save"></i><span id="titSubCanEdu"> រក្សាទុក</span></button>
+			                </div>
+			                
+			                
+			                 
+	                  </div>
+		                  
+		                  
+		                  
+		                  
+		                 </div>
+		              </div>
+		              <!-- /.end_register -->
+		              
+		            </div>
+		          </div>
+		        </div>
+	        
+	        
+	        <!-- /.end-row -->
+	       
+	      </div>
+	      <!-- /.container-fluid -->
+	    </section>
+	    <!-- /.content -->
+	  </div>
+	  <!-- /.content-wrapper -->
+
+	<script src="js/user.js"></script>
+	
+</th:block> 
+
+
+
+
+
+</body>
+</html>

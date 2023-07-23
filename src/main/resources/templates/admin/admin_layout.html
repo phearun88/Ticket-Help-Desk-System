@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">THDS</title>
+
+<style th:replace="@{/shared/admin/_style}"></style>
+
+<script th:replace="@{/shared/admin/_script}"></script>
+
+</head> 
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<div th:replace="@{/shared/admin/_header}"></div>
+	
+		<div th:replace="@{/shared/admin/_left-side-bar}"></div>
+	
+		<div layout:fragment="content" class="content-wrapper"></div>
+		
+		<div th:replace="@{/shared/admin/_footer}"></div> 
+	
+	</div>
+	
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- Main Sidebar Container -->
+ <aside class="main-sidebar sidebar-dark-primary elevation-4">
+   <!-- Brand Logo -->
+   <a href="index3.html" class="brand-link">
+     <!-- <img  th:src="@{/admin/dist/img/AdminLTELogo.png}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"  style="opacity: .8"> -->
+     <span class="brand-text font-weight-light">THDS</span>
+   </a>
+
+   <!-- Sidebar -->
+   <div class="sidebar">
+     <!-- Sidebar user panel (optional) -->
+     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+       <div class="image">
+        <img th:src="@{/admin/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
+       </div>
+       <div class="info">
+         <a href="#" class="d-block"><span id="userNmTt"></span></a>
+         <input type="hidden" id="roleId"/> 
+         <input type="hidden" id="usrCode"/>
+       </div>
+     </div>
+
+     <!-- Sidebar Menu -->
+     <nav class="mt-2">
+       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="blockUser" style="display: none;">
+         
+         
+         <li class="nav-header moul"><h6>ដោះស្រាយបញ្ហា</h6></li>
+         
+         
+         <li class="nav-item">
+           <a href="/request" class="nav-link">
+             <i class="nav-icon far fa-image"></i>
+             <p>
+               បញ្ជីសំណើខ្ញុំ
+             </p>
+           </a>
+         </li>
+      </ul>  
+      
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="blockAdmin" style="display: none;">   
+         <li class="nav-header moul"><h6>អ្នកប្រើប្រាស់</h6></li>
+         
+         <li class="nav-item">
+           <a href="/users" class="nav-link">
+             <i class="nav-icon far fa-calendar-alt"></i>
+             <p>
+                បញ្ជីអ្នកប្រើប្រាស់
+             </p>
+           </a>
+         </li>
+         
+         <li class="nav-item">
+           <a href="/user_register" class="nav-link">
+             <i class="nav-icon far fa-calendar-alt"></i>
+             <p>
+               ចុះឈ្មោះអ្នកប្រើប្រាស់
+             </p>
+           </a>
+         </li>
+         
+         
+        
+        <li class="nav-header moul"><h6>របាយការណ៍</h6></li>
+        
+         <li class="nav-item">
+           <a href="/categories" class="nav-link">
+             <i class="nav-icon far fa-image"></i>
+             <p>
+               ប្រភេទសំណើ
+             </p>
+           </a>
+         </li>
+        
+         <li class="nav-item">
+           <a href="/request" class="nav-link">
+             <i class="nav-icon far fa-image"></i>
+             <p>
+               បញ្ជីសំណើទាំងអស់
+             </p>
+           </a>
+         </li>
+
+         <li class="nav-item">
+           <a href="users_log" class="nav-link">
+             <i class="nav-icon far fa-image"></i>
+             <p>
+               បញ្ជីអ្នកចូលប្រើកម្មវធី
+             </p>
+           </a>
+         </li>
+       </ul>
+       
+       
+       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">   
+       
+	       <li sec:authorize="isAuthenticated()" class="nav-item">
+	           <form th:action="@{/logout}" method="post">
+		           <a class="nav-link">
+		             <i class="nav-icon far fa-image"></i>
+		             <p>
+		             <input type="submit" value="ចាកចេញ"/>
+		             </p>
+		           </a>
+	           </form>
+	           
+	         </li>
+       
+       
+       </ul>
+     </nav>
+     <!-- /.sidebar-menu -->
+   </div>
+   <!-- /.sidebar -->
+   
+   <script th:src="@{/js/left_menu.js}"></script>
+ </aside>

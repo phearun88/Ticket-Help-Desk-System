@@ -1,0 +1,187 @@
+  <html xmlns:th="https://www.thymeleaf.org"
+  		xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+  		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="/admin/admin_layout">
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+		    
+		    
+<th:block layout:fragment="content">
+	<!-- Content Wrapper. Contains page content -->
+	  <div class="content-wrapper">
+	    <!-- Content Header (Page header) -->
+	    <div class="content-header">
+	      <div class="container-fluid">
+	        <div class="row mb-2">
+	          <div class="col-sm-6">
+	            <h1 class="m-0 text-dark">ត្រួតពិនិត្យសំណើ</h1>
+	          </div><!-- /.col -->
+	        </div><!-- /.row -->
+	      </div><!-- /.container-fluid -->
+	    </div>
+	    <!-- /.content-header -->
+	
+	    <!-- Main content -->
+	    <section class="content">
+	      <div class="container-fluid">
+	        
+	        <div class="row">
+	          <div class="col-12">
+	            <div class="card">
+	              <div class="card-body table-responsive p-0" id="results1">
+	              
+	              	<form id="fmrRequest">
+			                <table class="table tblNonBorder">
+			                
+			                	<colgroup>
+									<col style="width:10%">
+									<col style="width:40%">
+									<col style="width:10%">
+									<col style="width:40%">
+									<col>
+								</colgroup>
+			                	<tr>
+			                		<th>ប្រភេទសំណើរ</th>
+			                		<td>
+			                		    <input type="hidden" id="issueId"/>
+			                			<select class="form-control" id="mainCate">
+				                        </select>
+				                   	</td>
+				                   	<th>ប្រភេទសំណើររង</th>
+			                		<td>
+			                			<select class="form-control" id="subCate">
+			                				<option value="">===សូមជ្រើសរើស===</option>
+				                        </select>
+				                   	</td>
+			                	</tr>
+			                	
+			                	<tr>
+			                		<th>ប្រធានបទ</th>
+			                		<td colspan="3">
+			                			<input class="form-control form-control-lg" type="text" id="subjectTt" placeholder="ប្រធានបទ">	
+			                		</td>
+			                	</tr>
+			                	
+			                	<tr>
+			                		<th>ការពិពណ៌នា</th>
+			                		<td colspan="3">
+			                			<textarea class="form-control" rows="5" id="issueDesc" placeholder="ការពិពណ៌នា"></textarea>
+			                		</td>
+			                	</tr>
+			             </table>
+			             <table class="table tblNonBorder" id="conEditor">
+			            		 <colgroup>
+									<col style="width:10%">
+									<col style="width:40%">
+									<col style="width:10%">
+									<col style="width:40%">
+									<col>
+								</colgroup>
+			                	<tr>
+			                		<th>ស្ថានភាព</th>
+			                		<td>
+			                			<select class="form-control" id="issueSt">
+			                				  <option value="1">សំណើថ្មី</option>
+			                			 	  <option value="2">ទទួលសំណើ</option>
+					                          <option value="3">កំពុងដោះស្រាយ</option>
+					                          <option value="4">បានដោះស្រាយ</option>
+					                          <option value="5">ឆ្លើយតបសំណើ</option>
+					                          <option value="6">បិទបញ្ចប់សំណើ</option>
+				                        </select>
+			                		</td>
+			                		
+			                		<th>អាទិភាព</th>
+			                		<td>
+			                			<select class="form-control" id="prioritySt">
+				                          <option value="1">ធម្មតា</option>
+				                          <option value="2">ខ្ពស់</option>
+				                          <option value="3">បន្ទាន់</option>
+				                        </select>
+			                		</td>
+			                	</tr>
+			                	
+			                	<tr>
+			                		<th>អ្នកចាត់តាំង</th>
+			                		<td>
+			                			<span id="iss_assignee"></span>
+			                		</td>
+			                		
+			                		<th>%រួចរាល់</th>
+			                		<td>
+			                			<select class="form-control" id="done">
+			                			  <option value="0">0%</option>
+				                          <option value="10">10%</option>
+				                          <option value="20">20%</option>
+				                          <option value="30">30%</option>
+				                          <option value="40">40%</option>
+				                          <option value="50">50%</option>
+				                          <option value="60">60%</option>
+				                          <option value="70">70%</option>
+				                          <option value="80">80%</option>
+				                          <option value="90">90%</option>
+				                          <option value="100">100%</option>
+				                        </select>
+			                		</td>
+			                	</tr>
+			                	
+			                	<tr>
+			                		<th>ចាប់ផ្ដើម</th>
+			                		<td>
+			                			<div class="input-group"><em class="point"></em>
+						                    <div class="input-group-prepend">
+						                      <span class="input-group-text">
+						                        <i class="far fa-calendar-alt"></i>
+						                      </span>
+						                    </div>
+						                    <input type="text" class="form-control float-right datepicker" id="startDate">
+						                  </div>
+			                		</td>
+			                		
+			                		<th>បញ្ចប់</th>
+			                		<td>
+			                			<div class="input-group"><em class="point"></em>
+						                    <div class="input-group-prepend">
+						                      <span class="input-group-text">
+						                        <i class="far fa-calendar-alt"></i>
+						                      </span>
+						                    </div>
+						                    <input type="text" class="form-control float-right datepicker" id="endDate">
+						                  </div>
+			                		</td>
+			                	</tr>
+			                	
+			                	
+			                </table>
+	                </form>
+	                <div class="col-12 col-sm-12" style="text-align: right; margin-bottom: 20px;">
+	                  <button type="submit" class="btn btn-primary" id="btnSaveRequest"><i class="far fa-save"></i> រក្សាទុក</button>
+	                </div>
+	                
+	              </div>
+	              <!-- /.card-body -->
+	            </div>
+	            <!-- /.card -->
+	          </div>
+	        </div>
+	        
+	        
+	        
+	        
+	      </div><!-- /.container-fluid -->
+	    </section>
+	    <!-- /.content -->
+	  </div>
+	  <!-- /.content-wrapper -->
+
+	
+	<script th:src="@{/js/check_request.js}"></script>
+</th:block> 
+
+
+
+
+</body>
+</html>

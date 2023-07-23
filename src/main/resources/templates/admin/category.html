@@ -1,0 +1,172 @@
+  <html xmlns:th="https://www.thymeleaf.org"
+  		xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+  		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="/admin/admin_layout">
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+		    
+		    
+<th:block layout:fragment="content">
+	<!-- Content Wrapper. Contains page content -->
+	  <div class="content-wrapper">
+	    <!-- Content Header (Page header) -->
+	    <div class="content-header">
+	      <div class="container-fluid">
+	        <div class="row mb-2">
+	          <div class="col-sm-6">
+	            <h1 class="m-0 text-dark">បញ្ជីប្រភេទសំណើរ</h1>
+	          </div><!-- /.col -->
+	        </div><!-- /.row -->
+	      </div><!-- /.container-fluid -->
+	    </div>
+	    <!-- /.content-header -->
+	
+	    <!-- Main content -->
+	    <section class="content">
+	      <div class="container-fluid">
+	        
+	        <div class="row">
+	          <div class="col-12">
+	            <div class="card">
+	              <div class="card-header">
+	                <h3 class="card-title"><button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#modal-addCate"><i class="far fa-save"></i><span> បន្ថែមសំណើរ</span></button></h3>
+	
+	                <div class="card-tools">
+	                  <div class="input-group input-group-sm" style="width: 150px;">
+	                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+	
+	                    <div class="input-group-append">
+	                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <!-- /.card-header -->
+	              <div class="card-body table-responsive p-0" id="results1">
+	                <table class="table table-hover text-nowrap" th:fragment="list">
+	                  <thead>
+	                    <tr>
+	                      <th>ឈ្មោះប្រភេទសំណើរ</th>
+	                      <th>ស្ថានភាព</th>
+	                      <th>កែប្រែ</th>
+	                      
+	                    </tr>
+	                  </thead>
+	                  <tbody id="cateDataList">
+	                    
+	                    
+	                  </tbody>
+	                </table>
+	              </div>
+	              <!-- /.card-body -->
+	            </div>
+	            <!-- /.card -->
+	          </div>
+	        </div>
+	      </div><!-- /.container-fluid -->
+	      
+	   <!--Str /.modal addCate"-->
+				<div class="modal fade" id="modal-addCate">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h4 class="modal-title"> បន្ថែមប្រភេទសំណើរ</h4>
+				        <button type="button" class="close btn_cls" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				       
+						<input type="text" class="form-control" id="cateNm">
+							  
+				      </div>
+				      <div class="modal-footer justify-content-between">
+				        <button type="button" class="btn btn-primary" id="addCate">រក្សាទុក</button>
+				      </div>
+				    </div>
+				    <!-- /.modal-content -->
+				  </div>
+				  <!-- /.modal-dialog -->
+				</div>
+		<!--End /.modal -->     
+
+		<!--Str /.modal addSubCate"-->
+				<div class="modal fade" id="modal-addSubCate">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h4 class="modal-title"  style="width: 60%;">
+				        	<span id="mainCateNm"> </span> 
+				        
+				        </h4> 
+				        
+				        <div class="input-group input-group-sm" style="width: 40%;">
+		                  <input type="text" class="form-control subCategNm">
+		                  <span class="input-group-append">
+		                    <button type="button" class="btn btn-info btn-flat" id="addSubCate">រក្សាទុក</button>
+		                  </span>
+		                </div>
+				        
+				       
+				        
+				        <input type="hidden" id="mainCateId"/>
+				        <button type="button" class="close btn_cls" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				        
+				        
+				        
+				      </div>
+				      <div class="modal-body">
+				       
+						<table class="table tblNonBorder">
+						  <thead>
+							<tr>
+		                      <th>ឈ្មោះប្រភេទសំណើររង</th>
+		                      <th>ល.រ</th>
+		                      <th>កែប្រែ</th>
+							</tr>
+						  </thead>
+						  <tbody id="subCateDataList">
+							<tr>
+							  <td>1</td>
+		                      <td>ABC</td>
+		                      <td>
+					             <button type="button" class="btn btn-default btn-xs"> បិទ </button>
+					           </td>
+							</tr>
+							
+						  </tbody>
+						</table>
+							  
+				      </div>
+				      <div class="modal-footer justify-content-between">
+				        
+				      </div>
+				    </div>
+				    <!-- /.modal-content -->
+				  </div>
+				  <!-- /.modal-dialog -->
+				</div>
+		<!--End /.modal -->      
+	      
+	      
+	      
+	      
+	    </section>
+	    <!-- /.content -->
+	  </div>
+	  <!-- /.content-wrapper -->
+
+	
+	<script th:src="@{/js/category.js}"></script>
+</th:block> 
+
+
+
+
+</body>
+</html>

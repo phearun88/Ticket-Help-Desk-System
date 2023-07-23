@@ -1,0 +1,111 @@
+  <html xmlns:th="https://www.thymeleaf.org"
+  		xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+  		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="/admin/admin_layout">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+		    
+		    
+<th:block layout:fragment="content">
+	<!-- Content Wrapper. Contains page content -->
+	  <div class="content-wrapper">
+	    <!-- Content Header (Page header) -->
+	    <div class="content-header">
+	      <div class="container-fluid">
+	        <div class="row mb-2">
+	          <div class="col-sm-6">
+	            <h1 class="m-0 text-dark">បញ្ជីសំណើទាំងអស់</h1>
+	          </div><!-- /.col -->
+	        </div><!-- /.row -->
+	      </div><!-- /.container-fluid -->
+	    </div>
+	    <!-- /.content-header -->
+	
+	    <!-- Main content -->
+	    <section class="content">
+	      <div class="container-fluid">
+	        
+	        <div class="row">
+	          <div class="col-12">
+	            <div class="card">
+	              <div class="card-header">
+	                <h3 class="card-title"><a href="/request_form" class="nav-link">បង្កើតសំណើរ</a></h3>
+	                
+	                <button type="button" class="btn" id="downExcel" style="display: none">ទាញExcel</button> 
+	               
+	                <div class="card-tools" id="searchIssue" style="display: none">
+				                       
+		                  <div class="input-group input-group-sm">
+		                  
+			                    <select class="form-control" id="issueSt">
+			                    	  <option value="0">ទាំងអស់</option>
+		               				  <option value="1">សំណើថ្មី</option>
+		               			 	  <option value="2">ទទួលសំណើ</option>
+			                          <option value="3">កំពុងដោះស្រាយ</option>
+			                          <option value="4">បានដោះស្រាយ</option>
+			                          <option value="5">ឆ្លើយតបសំណើ</option>
+			                          <option value="6">បិទបញ្ចប់សំណើ</option>
+		                        </select>
+			
+			                    <div class="input-group-append">
+			                      <button type="button" class="btn btn-default btnSearch"><i class="fas fa-search"></i></button>
+			                    </div>
+		                    
+		                  </div>
+	                  
+	                </div> 
+	                
+	                
+	              </div>
+	              <!-- /.card-header -->
+	              <div class="card-body table-responsive p-0" id="results1">
+	                <table class="table table-hover text-nowrap" id="listReq" th:fragment="list">
+	                  <thead>
+	                    <tr>
+	                      	<th>ស្ថានភាព</th>
+							<th>អាទិភាព</th>
+							<th> ប្រធានបទ</th>
+							<th>អ្នកស្នើសុំ</th>
+							<!-- <th>អ្នកចាត់តាំង</th> -->
+							<th>ប្រភេទសំណើរ</th>
+							<th>ប្រភេទសំណើររង</th>
+							<th>%រួចរាល់</th>
+							<th>បានធ្វើបច្ចុប្បន្នភាព</th>
+							<th>កែប្រែ</th>
+	                    </tr>
+	                  </thead>
+	                  <tbody id="issuesData">
+	                   
+
+
+
+	                    
+	                  </tbody>
+	                </table>
+	              </div>
+	              <!-- /.card-body -->
+	            </div>
+	            <!-- /.card -->
+	          </div>
+	        </div>
+	        
+	        
+	        
+	        
+	      </div><!-- /.container-fluid -->
+	    </section>
+	    <!-- /.content -->
+	  </div>
+	  <!-- /.content-wrapper -->
+
+	
+	<script th:src="@{/js/list_request.js}"></script>
+</th:block> 
+
+
+
+
+</body>
+</html>
